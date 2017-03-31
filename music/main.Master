@@ -1,0 +1,45 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="main.master.cs" Inherits="music.main" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+    <link rel="Stylesheet" href="css/bootstrap-theme.css" />
+    <script src="js/jquery-3.1.1.js" type="text/javascript"></script>
+    <script src="js/bootstrap.js" type="text/javascript"></script>
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="top">
+        <div>
+            <a href="#">登陆</a>|<a href="#">注册</a>
+        </div>
+        <div id="search">
+            <div>
+                <span>
+                    <asp:LinkButton ID="categories" runat="server">类别</asp:LinkButton>
+                    <asp:LinkButton ID="singer" runat="server">歌手</asp:LinkButton>
+                    <asp:LinkButton ID="song" runat="server">歌曲</asp:LinkButton>
+                </span>
+                <div>
+                    <asp:TextBox ID="txtSearch" runat="server"></asp:TextBox>
+                    <asp:Button ID="btnSearch" runat="server" Text="搜索" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    <div id="foot">
+        页脚区域
+    </div>
+    </form>
+</body>
+</html>
