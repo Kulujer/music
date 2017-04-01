@@ -62,6 +62,7 @@
     <Content Include="js\jquery-3.1.1.js" />
     <Content Include="js\jquery-3.1.1.min.js" />
     <Content Include="js\npm.js" />
+    <Content Include="test.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -86,6 +87,13 @@
     </Compile>
     <Compile Include="side.master.designer.cs">
       <DependentUpon>side.master</DependentUpon>
+    </Compile>
+    <Compile Include="test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test.aspx.designer.cs">
+      <DependentUpon>test.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

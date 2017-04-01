@@ -9,7 +9,8 @@
         </asp:ContentPlaceHolder>
     </div>
     <div style="width:20%; float:right;">
-        右边
+        <asp:ListView ID="adv" runat="server">
+        </asp:ListView>
     </div>
     <div style="clear:both"></div>
 </asp:Content>
