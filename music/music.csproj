@@ -98,6 +98,7 @@
     </Compile>
     <Compile Include="Top10.aspx.cs">
       <DependentUpon>Top10.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Top10.aspx.designer.cs">
       <DependentUpon>Top10.aspx</DependentUpon>
