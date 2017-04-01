@@ -1,10 +1,38 @@
 ﻿* {
     border:box-sizing;
-    
-    }
+}
 
 body 
 {
+}
+
+/*main.master*/
+.main 
+{
+    width:1000px;
+    margin:0 auto;
+}
+
+.main-search
+{
+    width:400px;
+    margin:0 auto;
+}
+
+.txtSearch
+{
+    width:300px;
+    height:30px;
+}
+.btnSearch
+{
+    width:50px;
+    height:30px;
+}
+.footer
+{
+    margin-top:50px;
+    height:70px;
 }
 
 .MusicTop10 {

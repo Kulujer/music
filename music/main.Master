@@ -16,30 +16,34 @@
 <body>
     <form id="form1" runat="server">
     <div id="top">
-        <div style="text-align:right;">
-            <a href="#">登陆</a>|<a href="#">注册</a>
+        <div style="text-align:right;" class="main">
+            <span>
+                <a href="#">登陆</a>&nbsp;&nbsp;<a href="#">注册</a>
+            </span>
         </div>
-        <div id="search">
-            <div>
+        <div id="search" class="main">
+            <div class="main-search">
                 <span>
-                    <asp:LinkButton ID="categories" runat="server">类别</asp:LinkButton>
-                    <asp:LinkButton ID="singer" runat="server">歌手</asp:LinkButton>
-                    <asp:LinkButton ID="song" runat="server">歌曲</asp:LinkButton>
+                    <asp:LinkButton ID="singer" runat="server">歌手</asp:LinkButton>&nbsp;&nbsp;
+                    <asp:LinkButton ID="song" runat="server">歌曲</asp:LinkButton>&nbsp;&nbsp;
+                    <asp:LinkButton ID="collection" runat="server">我的收藏 </asp:LinkButton>
                 </span>
                 <div>
-                    <asp:TextBox ID="txtSearch" runat="server"></asp:TextBox>
-                    <asp:Button ID="btnSearch" runat="server" Text="搜索" />
+                    <asp:TextBox ID="txtSearch" CssClass="txtSearch" runat="server"></asp:TextBox>
+                    <asp:Button ID="btnSearch" CssClass="btnSearch" runat="server" Text="搜索" />
                 </div>
             </div>
         </div>
     </div>
-    <div>
+    <div class="main">
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         
         </asp:ContentPlaceHolder>
     </div>
-    <div id="foot">
-        页脚区域
+    <div id="foot" class="footer">
+        <div class="main">
+        关于我们
+        </div>
     </div>
     </form>
 </body>
