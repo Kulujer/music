@@ -1,9 +1,9 @@
 ﻿* {
     border:box-sizing;
-    
 }
 
-body {
+body 
+{
 }
 
 /*main.master*/
@@ -33,5 +33,27 @@ body {
 {
     margin-top:50px;
     height:70px;
+}
 
+.MusicTop10 {
+  width:400px;
+  float:left;
+}
+
+.SingerTop10 {
+   width:300px;
+   float:left;
+   margin-left:100px;
+}
+
+.MusicTop10-ol span{
+  margin-left:30px;
+}
+
+.SingerTop10-ol span {
+  margin-left:30px;
+}
+
+.MusicTop10-icon-bar {
+    float:right
 }
