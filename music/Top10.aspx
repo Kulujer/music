@@ -11,12 +11,12 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
  <div class="MusicTop10 ">
-        <h3 class="header">热歌榜</h3>
+        <h3 class="MusicTop10-header">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 热歌榜</h3>
          <ol class="MusicTop10-ol ">
          </ol>
     </div>
     <div class="SingerTop10 ">
-        <h3>歌手榜</h3>
+        <h3 class="SingerTop10-header">歌手榜</h3>
         <ol class="SingerTop10-ol list-group">
         </ol>
     </div>

@@ -39,6 +39,7 @@ body
 .MusicTop10 {
   width:400px;
   float:left;
+  
 }
 
 .SingerTop10 {
@@ -58,3 +59,19 @@ body
 .MusicTop10-icon-bar {
     float:right
 }
+
+/*====================SeacherResult====================*/
+.SearchOutcome
+{
+    width:500px;
+    }
+.SearchOutcome span
+{
+    margin-left:30px;
+    }
+
+.SearchOutcome-icon-bar
+{
+    float:right;
+    }
+
