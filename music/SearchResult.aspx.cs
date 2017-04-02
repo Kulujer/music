@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.Services;
 
 namespace music
 {
@@ -13,5 +14,16 @@ namespace music
         {
 
         }
+        [WebMethod]
+        public static List<string> GetArray()
+        {
+            List<string> li = new List<string>();
+
+            for (int i = 0; i < 10; i++)
+                li.Add(i + "");
+
+            return li;
+
+        }    
     }
 }
