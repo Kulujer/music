@@ -75,3 +75,11 @@ body
     float:right;
     }
 
+/*====================清除浮动====================*/
+.clear
+{
+    clear:both;
+    line-height:0px;
+    margin:0px;
+    padding:0px;
+    }

@@ -21,5 +21,6 @@
               <ol class="SingerTop10-ol list-group">
               </ol>
           </div>
+          <div class="clear"></div>
     </div>
 </asp:Content>
