@@ -17,6 +17,7 @@ body
 {
     width:400px;
     margin:0 auto;
+    padding-bottom:50px;
 }
 
 .txtSearch
@@ -58,3 +59,17 @@ body
 .MusicTop10-icon-bar {
     float:right
 }
+
+/*====================userMgr.master====================*/
+.list-userMgr
+{
+    width:20%;
+    float:left;
+}
+
+/*====================collect.aspx====================*/
+.collect-mgr
+{
+    text-align:right;
+}
+
