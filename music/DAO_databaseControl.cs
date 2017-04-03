@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
 
-namespace UniSharing
+namespace music
 {
     public class DAO_databaseControl
     {
