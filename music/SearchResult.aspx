@@ -33,8 +33,8 @@
                 success: function (data) {
                     $("#fengye-li-1").addClass("active");
                     for (var i = 0; i < data.d.length; i++) {
-                        $(".SearchOutcome-ul").append('<li class="SearchOutcome-ul-li list-group-item"><span>' + (i + 1) + '</span><span class="SearchOutcome-ul-li-checkbox"><input type="checkbox"/></span><span class="song-item">歌名</span><span class="singer-item">歌手</span><span class="hot-item">热度</span> <div class="SearchOutcome-icon-bar"><span class="play-item"><a href="#"><i class="glyphicon glyphicon-play"></i></a></span><span class="collect-item"><a href="#"><i class="glyphicon glyphicon-heart"></i></a></span></div></li>');
-                    }
+                        $(".SearchOutcome-tb").append('<tr><td><input type="checkbox"/></td><td>songName</td> <td>singer</td><td>hot</td><td><a><i class="glyphicon glyphicon-play"></i></a></td><td><a><i class="glyphicon glyphicon-heart"></i></a></td></tr>');
+                }
                 },
                 error: function (err) {
                     alert("加载失败");
@@ -45,8 +45,21 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
        <div class="SearchOutcome">
-           <ul class="SearchOutcome-ul list-group">
-           </ul>
+          <div style="background-color:#9f0000;height:20px;"></div>
+           <table class="SearchOutcome-tb table table-striped">
+               <tr style="background-color:#9f0000"></tr>
+               <thead>
+                   <tr>
+                       <th></th>
+                       <th>歌名</th>
+                       <th>歌手</th>
+                       <th>热度</th>
+                       <th></th>
+                       <th></th>
+                   </tr>
+               </thead>
+               <tr style="line-height:0px;"></tr>
+           </table>
        </div>
         <div class="fengye">
             <ul class="fengye-ul pagination pagination-lg">
