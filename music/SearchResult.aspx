@@ -8,13 +8,14 @@
                     $(this).parent().addClass("active").siblings().removeClass("active");
                     $.ajax({
                         type: "Post",
-                        url: "SearchResult.aspx/GetArray",
-                        data: i,         //传参
+                        url: "SearchResult.aspx/Pagecount",
+                        data: { "key": $("txtSearch").val().toString()},
                         contentType: "application/json; charset=utf-8",
                         dataType: "json",
                         success: function (data) {
+                            var jsonobj = eval(data.d)
                             $(".SearchOutcome-ul").html("");
-                            for (var j = 0; j < data.d.length; j++) {
+                            for (var j = 0; j < jsonobj.length; j++) {
                                 $(".SearchOutcome-ul").append('<li class="SearchOutcome-ul-li list-group-item"><span>' + (j + 1) + '</span><span class="SearchOutcome-ul-li-checkbox"><input type="checkbox"/></span><span class="song-item">歌名</span><span class="singer-item">歌手</span><span class="hot-item">热度</span> <div class="SearchOutcome-icon-bar"><span class="play-item"><a href="#"><i class="glyphicon glyphicon-play"></i></a></span><span class="collect-item"><a href="#"><i class="glyphicon glyphicon-heart"></i></a></span></div></li>');
                             }
                         },
@@ -34,7 +35,7 @@
                     $("#fengye-li-1").addClass("active");
                     for (var i = 0; i < data.d.length; i++) {
                         $(".SearchOutcome-tb").append('<tr><td><input type="checkbox"/></td><td>songName</td> <td>singer</td><td>hot</td><td><a><i class="glyphicon glyphicon-play"></i></a></td><td><a><i class="glyphicon glyphicon-heart"></i></a></td></tr>');
-                }
+                    }
                 },
                 error: function (err) {
                     alert("加载失败");
@@ -65,6 +66,6 @@
             <ul class="fengye-ul pagination pagination-lg">
                 <li class="previous-li"><a href="javascript:void(0)">&laquo;</a></li>
                 <li><a href="javascript:void(0)">&raquo;</a></li>
-            </ul><br>
+            </ul><br/>
         </div>
 </asp:Content>

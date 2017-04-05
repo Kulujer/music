@@ -73,7 +73,6 @@
     <Content Include="SearchResult.aspx" />
     <Content Include="test.aspx" />
     <Content Include="Top10.aspx" />
- 
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -207,11 +206,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-
-          <DevelopmentServerPort>60358</DevelopmentServerPort>
-
           <DevelopmentServerPort>31691</DevelopmentServerPort>
-
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

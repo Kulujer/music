@@ -38,7 +38,7 @@ body
 
 /*====================top10====================*/
 .MusicTop10 {
-  width:400px;
+  width:600px;
   float:left;
   
 }
@@ -61,11 +61,25 @@ body
     float:right
 }
 
-<<<<<<< HEAD
+.MusicTop10-ol-li .hot-item
+{
+    float:right;
+    }
+.MusicTop10-ol-li .singer-item
+{
+    margin-right:50px;
+    float:right;
+    }
+.SingerTop10-ol-li .hot-item
+{
+    float:right;
+    margin-right:50px;
+    }
+
 /*====================SeacherResult====================*/
 .SearchOutcome
 {
-    width:500px;
+    width:600px;
     }
 .SearchOutcome span
 {
@@ -85,7 +99,7 @@ body
     margin:0px;
     padding:0px;
     }
-=======
+
 /*====================userMgr.master====================*/
 .list-userMgr
 {
@@ -99,4 +113,4 @@ body
     text-align:right;
 }
 
->>>>>>> FFFirer/wmg
+
