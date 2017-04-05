@@ -114,6 +114,9 @@
     <Compile Include="AdminManageUser.aspx.designer.cs">
       <DependentUpon>AdminManageUser.aspx</DependentUpon>
     </Compile>
+    <Compile Include="BLL_UserManage.cs" />
+    <Compile Include="Model_Song.cs" />
+    <Compile Include="Model_User.cs" />
     <Compile Include="sqlHelper.cs" />
     <Compile Include="main.Master.cs">
       <DependentUpon>main.Master</DependentUpon>
