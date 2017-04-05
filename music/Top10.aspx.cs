@@ -22,7 +22,7 @@ namespace music
         public static string Gettop10(string sql)
         {
             //获取音乐top10的表格
-            DataTable table = DAO_databaseControl.GetDataSet(sql);
+            DataTable table = sqlHelper.GetDataSet(sql);
             string jsonString = string.Empty;
             //json序列化
             jsonString = JsonConvert.SerializeObject(table);
