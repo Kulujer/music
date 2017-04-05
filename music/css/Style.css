@@ -17,6 +17,7 @@ body
 {
     width:400px;
     margin:0 auto;
+    padding-bottom:50px;
 }
 
 .txtSearch
@@ -60,6 +61,7 @@ body
     float:right
 }
 
+<<<<<<< HEAD
 /*====================SeacherResult====================*/
 .SearchOutcome
 {
@@ -83,3 +85,18 @@ body
     margin:0px;
     padding:0px;
     }
+=======
+/*====================userMgr.master====================*/
+.list-userMgr
+{
+    width:20%;
+    float:left;
+}
+
+/*====================collect.aspx====================*/
+.collect-mgr
+{
+    text-align:right;
+}
+
+>>>>>>> FFFirer/wmg

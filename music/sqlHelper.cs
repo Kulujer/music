@@ -8,7 +8,7 @@ using System.Data;
 
 namespace music
 {
-    public class DAO_databaseControl
+    public class sqlHelper
     {
         private static SqlConnection connection;
         public static SqlConnection Connection
@@ -17,7 +17,7 @@ namespace music
             {
                 //获取连接字符串，若无，则从web.config获取
                 string connString = ConfigurationManager.ConnectionStrings["sqlserver"].ToString();
-                if(connection==null||connection.State== ConnectionState.Closed)
+                if (connection == null || connection.State == ConnectionState.Closed)
                 {
                     connection = new SqlConnection(connString);
                     connection.Open();
@@ -95,5 +95,6 @@ namespace music
             Connection.Close();
             return ret;
         }
+
     }
 }
