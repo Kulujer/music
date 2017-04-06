@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 using System.Web.Services;
 using System.Data;
 using Newtonsoft.Json;
+using System.Text;
+using System.Data.SqlClient;
 
 namespace music
 {
@@ -30,16 +32,26 @@ namespace music
         private static DataTable GetTable(string key)
         {
             string sql = string.Empty;
-            if (key != null && key.Equals(""))
+            if (key != null && !key.Equals(""))
             {
-                 sql = string.Format("select top 100 SongName,SingerName,WebUrl,Hits from t_music ORDER BY Hits");
+                sql = "select SongName,SingerName,WebUrl,Hits from t_music where SongName='" + key + "' or SingerName='" + key + "' ORDER BY Hits"; 
             }
             else
             {
-                 sql = string.Format("select top 100 SongName,SingerName,WebUrl,Hits from t_music ORDER BY Hits ");
+                sql = "select top 100 SongName,SingerName,WebUrl,Hits from t_music ORDER BY Hits";
             }
             DataTable table = sqlHelper.GetDataSet(sql);
-            return table;
+            //超过一百条记录，则选取其中前一百条
+            if (table.Rows.Count <= 100)
+                return table;
+            else
+            {
+                for (int i = 100; i < table.Rows.Count; i++)
+                {
+                    table.Rows.RemoveAt(i);
+                }
+                return table;
+            }
         }
 
         /// <summary>
@@ -48,9 +60,20 @@ namespace music
         /// <param name="key"></param>
         /// <returns></returns>
         [WebMethod]
-        private static int Pagecount()
+        public static int Pagecount()
         {
-            int pagecount = table.Rows.Count/10;
+            int pagecount = 0;
+            //整除10
+            if (table.Rows.Count % 10 == 0)
+            {
+                pagecount = table.Rows.Count / 10;
+            }
+            //有余数
+            else 
+            {
+                pagecount = (table.Rows.Count / 10) + 1;
+            }
+            
             return pagecount;
         }
 
@@ -61,14 +84,34 @@ namespace music
         /// <param name="page"></param>
         /// <returns></returns>
         [WebMethod]
-        public static string GetOutcome(int page)
+        public static string GetOutcome(string page)
         {
-            DataTable SelectTable = new DataTable();
-            for (int i = page*10; i < (page+1)*10; i++)
+            int Intpage = int.Parse(page);
+            //克隆table结构
+            DataTable SelectTable = table.Clone();
+            //判断table记录数是否能填满page的页数
+            if (table.Rows.Count >= Intpage * 10)
             {
-                DataRow row = table.Rows[i];
-                SelectTable.Rows.Add(row);
+                //填满则读取10条记录填充page中
+                for (int i = (Intpage * 10) - 1; i >= (Intpage - 1) * 10; i--)
+                {
+                    if (table.Rows[i] != null)
+                    {
+                        SelectTable.Rows.Add(table.Rows[i].ItemArray);
+                    }
+                }
             }
+            else 
+            {
+                //填不满
+                for (int i = table.Rows.Count - 1; i >= (Intpage - 1) * 10; i--)
+                {
+                    if (table.Rows[i] != null)
+                    {
+                        SelectTable.Rows.Add(table.Rows[i].ItemArray);
+                    }
+                }
+            }     
             string JsonString = string.Empty;
             JsonString = JsonConvert.SerializeObject(SelectTable);
             return JsonString;
