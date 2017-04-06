@@ -12,22 +12,16 @@ namespace music
 {
     public partial class SearchResult : System.Web.UI.Page
     {
+        private static DataTable table = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (table != null || table.Rows.Count != 0)
+            {
+                table.Clear();
+            }
+            table = GetTable(Session["key"].ToString());
         }
-        [WebMethod]
-        public static List<string> GetArray()
-        {
-            List<string> li = new List<string>();
-
-            for (int i = 0; i < 10; i++)
-                li.Add(i + "");
-
-            return li;
-
-        }
-
+       
         /// <summary>
         /// 获取100条总记录
         /// </summary>
@@ -35,7 +29,15 @@ namespace music
         /// <returns></returns>
         private static DataTable GetTable(string key)
         {
-            string sql = string.Format("select top 100 SongName,SingerName,WebUrl,Hits from t_music ORDER BY Hits WHERE SongName='{0}' or SingerName='{0}' ",key);
+            string sql = string.Empty;
+            if (key != null && key.Equals(""))
+            {
+                 sql = string.Format("select top 100 SongName,SingerName,WebUrl,Hits from t_music ORDER BY Hits");
+            }
+            else
+            {
+                 sql = string.Format("select top 100 SongName,SingerName,WebUrl,Hits from t_music ORDER BY Hits ");
+            }
             DataTable table = sqlHelper.GetDataSet(sql);
             return table;
         }
@@ -46,9 +48,8 @@ namespace music
         /// <param name="key"></param>
         /// <returns></returns>
         [WebMethod]
-        private static int Pagecount(string key)
+        private static int Pagecount()
         {
-            DataTable table = GetTable(key);
             int pagecount = table.Rows.Count/10;
             return pagecount;
         }
@@ -60,13 +61,12 @@ namespace music
         /// <param name="page"></param>
         /// <returns></returns>
         [WebMethod]
-        public static string GetOutcome(string key,int page)
+        public static string GetOutcome(int page)
         {
-            DataTable TotalTable = GetTable(key);
             DataTable SelectTable = new DataTable();
             for (int i = page*10; i < (page+1)*10; i++)
             {
-                DataRow row = TotalTable.Rows[i];
+                DataRow row = table.Rows[i];
                 SelectTable.Rows.Add(row);
             }
             string JsonString = string.Empty;
