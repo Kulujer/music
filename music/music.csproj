@@ -59,6 +59,8 @@
     <Content Include="AdminManageSingers.aspx" />
     <Content Include="AdminManageSongs.aspx" />
     <Content Include="AdminManageUser.aspx" />
+    <Content Include="AllMusic.aspx" />
+    <Content Include="AllSinger.aspx" />
     <Content Include="css\bootstrap-theme.css" />
     <Content Include="css\bootstrap-theme.min.css" />
     <Content Include="css\bootstrap.css" />
@@ -121,6 +123,20 @@
     </Compile>
     <Compile Include="AdminManageUser.aspx.designer.cs">
       <DependentUpon>AdminManageUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AllMusic.aspx.cs">
+      <DependentUpon>AllMusic.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AllMusic.aspx.designer.cs">
+      <DependentUpon>AllMusic.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AllSinger.aspx.cs">
+      <DependentUpon>AllSinger.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AllSinger.aspx.designer.cs">
+      <DependentUpon>AllSinger.aspx</DependentUpon>
     </Compile>
     <Compile Include="sqlHelper.cs" />
     <Compile Include="main.Master.cs">

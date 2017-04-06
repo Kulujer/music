@@ -11,7 +11,13 @@ namespace music
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+           
+        }
 
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            Session["key"] = txtSearch.Text.Trim();
+            Response.Redirect("SearchResult.aspx");
         }
     }
 }
