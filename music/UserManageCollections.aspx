@@ -5,13 +5,14 @@
 <div>
     <asp:GridView ID="GridView1" runat="server" AllowPaging="True" 
         AutoGenerateColumns="False" Width="100%" CellPadding="4" 
-        ForeColor="#333333" GridLines="None">
+        ForeColor="#333333" GridLines="None" AllowSorting="True" 
+        onrowdeleting="GridView1_RowDeleting" 
+        onpageindexchanging="GridView1_PageIndexChanging">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:TemplateField>
                 <HeaderTemplate>
-                    <asp:CheckBox ID="CheckBox2" runat="server" />
-                    全选
+                    选择
                 </HeaderTemplate>
                 <ItemTemplate>
                     <asp:CheckBox ID="CheckBox1" runat="server" />
@@ -28,16 +29,16 @@
                 <HeaderStyle HorizontalAlign="Center" />
                 <ItemStyle HorizontalAlign="Center" Width="52px" />
             </asp:TemplateField>
-            <asp:BoundField HeaderText="歌曲名">
+            <asp:BoundField HeaderText="歌曲名" DataField="songName">
             <ControlStyle Width="150px" />
             <ItemStyle Width="152px" />
             </asp:BoundField>
-            <asp:BoundField HeaderText="歌手">
+            <asp:BoundField HeaderText="歌手" DataField="singerName">
             <ControlStyle Width="150px" />
             <HeaderStyle HorizontalAlign="Center" Width="152px" />
             <ItemStyle HorizontalAlign="Center" Width="152px" />
             </asp:BoundField>
-            <asp:HyperLinkField HeaderText="播放" Text="播放">
+            <asp:HyperLinkField HeaderText="播放" Text="播放" DataNavigateUrlFields="weburl">
             <ControlStyle Width="50px" />
             <HeaderStyle HorizontalAlign="Center" />
             <ItemStyle HorizontalAlign="Center" Width="52px" />
@@ -47,6 +48,7 @@
             <HeaderStyle HorizontalAlign="Center" />
             <ItemStyle HorizontalAlign="Center" Width="72px" />
             </asp:CommandField>
+            <asp:BoundField HeaderText="collectID" Visible="False" DataField="collectID" />
         </Columns>
         <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
         <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
@@ -59,7 +61,12 @@
         <SortedDescendingHeaderStyle BackColor="#820000" />
     </asp:GridView>
     <div>
-        <asp:Button ID="btnDel" runat="server" Text="取消收藏" />
+        <asp:CheckBox ID="CheckAll" runat="server" 
+            oncheckedchanged="CheckAll_CheckedChanged" AutoPostBack="True" />全选
+    </div>
+    <div>
+        <asp:Button ID="btnDel" runat="server" Text="取消收藏" onclick="btnDel_Click" />
+        <asp:Button ID="btnCancel" runat="server" Text="取消" onclick="btnCancel_Click" />
     </div>
 </div>
 </asp:Content>
