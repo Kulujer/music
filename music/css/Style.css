@@ -90,6 +90,19 @@ body
 {
     float:right;
     }
+    
+.songName-th
+{
+    width:300px;
+    }
+.singer-th
+{
+    width:100px;
+    }
+.hits-th
+{
+    width:50px;
+    }
 
 /*====================清除浮动====================*/
 .clear

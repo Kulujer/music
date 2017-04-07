@@ -56,9 +56,9 @@
                <thead>
                    <tr>
                        <th></th>
-                       <th>歌名</th>
-                       <th>歌手</th>
-                       <th>热度</th>
+                       <th class="songName-th">歌名</th>
+                       <th class="singer-th">歌手</th>
+                       <th class="hits-th">热度</th>
                        <th></th>
                        <th></th>
                    </tr>

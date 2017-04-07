@@ -72,7 +72,7 @@
     <Content Include="js\jquery-3.1.1.js" />
     <Content Include="js\jquery-3.1.1.min.js" />
     <Content Include="js\npm.js" />
-<<<<<<< HEAD
+
     <Content Include="SearchResult.aspx" />
     <Content Include="test.aspx" />
     <Content Include="Top10.aspx" />
@@ -80,12 +80,12 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="userChangePassword.aspx" />
-=======
+
     <Content Include="loginANDsignup.aspx" />
     <Content Include="test.aspx" />
     <Content Include="Top10.aspx" />
     <Content Include="UserChangePassword.aspx" />
->>>>>>> FFFirer/master
+
     <Content Include="UserManageCollections.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -131,7 +131,6 @@
     <Compile Include="AdminManageUser.aspx.designer.cs">
       <DependentUpon>AdminManageUser.aspx</DependentUpon>
     </Compile>
-<<<<<<< HEAD
     <Compile Include="AllMusic.aspx.cs">
       <DependentUpon>AllMusic.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -146,7 +145,7 @@
     <Compile Include="AllSinger.aspx.designer.cs">
       <DependentUpon>AllSinger.aspx</DependentUpon>
     </Compile>
-=======
+
     <Compile Include="BLL_AdminManage.cs" />
     <Compile Include="BLL_UserManage.cs" />
     <Compile Include="DAL_AdminManage.cs" />
@@ -162,7 +161,7 @@
     <Compile Include="Model_Singer.cs" />
     <Compile Include="Model_User.cs" />
     <Compile Include="SessionContorl.cs" />
->>>>>>> FFFirer/master
+
     <Compile Include="sqlHelper.cs" />
     <Compile Include="main.Master.cs">
       <DependentUpon>main.Master</DependentUpon>
