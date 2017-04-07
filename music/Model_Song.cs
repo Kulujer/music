@@ -10,50 +10,50 @@ namespace music
     /// </summary>
     public class Model_Song
     {
-        private static int id;
-        private static string songname;
-        private static string singername;
-        private static string typename;
-        private static string weburl;
-        private static DateTime grapdatetime;
-        private static DateTime hittime;
-        private static int hits;
-        public static int ID
+        private int id;
+        private string songname;
+        private string singername;
+        private string typename;
+        private string weburl;
+        private DateTime grapdatetime;
+        private DateTime hittime;
+        private int hits;
+        public int ID
         {
             set { id = value; }
             get { return id; }
         }
-        public static string SongName
+        public string SongName
         {
             set { songname = value; }
             get { return songname; }
         }
-        public static string SingerName
+        public string SingerName
         {
             set { singername = value; }
             get { return singername; }
         }
-        public static string TypeName
+        public string TypeName
         {
             set { typename = value; }
             get { return typename; }
         }
-        public static string WebUrl
+        public string WebUrl
         {
             set { weburl = value; }
             get { return weburl; }
         }
-        public static DateTime GrapDateTime
+        public DateTime GrapDateTime
         {
             set { grapdatetime = value; }
             get { return grapdatetime; }
         }
-        public static DateTime HitTime
+        public DateTime HitTime
         {
             set { hittime = value; }
             get { return hittime; }
         }
-        public static int Hits
+        public int Hits
         {
             set { hits = value; }
             get { return hits; }

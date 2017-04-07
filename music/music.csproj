@@ -66,9 +66,10 @@
     <Content Include="js\jquery-3.1.1.js" />
     <Content Include="js\jquery-3.1.1.min.js" />
     <Content Include="js\npm.js" />
+    <Content Include="loginANDsignup.aspx" />
     <Content Include="test.aspx" />
     <Content Include="Top10.aspx" />
-    <Content Include="userChangePassword.aspx" />
+    <Content Include="UserChangePassword.aspx" />
     <Content Include="UserManageCollections.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -114,9 +115,21 @@
     <Compile Include="AdminManageUser.aspx.designer.cs">
       <DependentUpon>AdminManageUser.aspx</DependentUpon>
     </Compile>
+    <Compile Include="BLL_AdminManage.cs" />
     <Compile Include="BLL_UserManage.cs" />
+    <Compile Include="DAL_AdminManage.cs" />
+    <Compile Include="DAL_UserManage.cs" />
+    <Compile Include="loginANDsignup.aspx.cs">
+      <DependentUpon>loginANDsignup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="loginANDsignup.aspx.designer.cs">
+      <DependentUpon>loginANDsignup.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Model_Song.cs" />
+    <Compile Include="Model_Singer.cs" />
     <Compile Include="Model_User.cs" />
+    <Compile Include="SessionContorl.cs" />
     <Compile Include="sqlHelper.cs" />
     <Compile Include="main.Master.cs">
       <DependentUpon>main.Master</DependentUpon>
@@ -147,12 +160,12 @@
     <Compile Include="Top10.aspx.designer.cs">
       <DependentUpon>Top10.aspx</DependentUpon>
     </Compile>
-    <Compile Include="userChangePassword.aspx.cs">
-      <DependentUpon>userChangePassword.aspx</DependentUpon>
+    <Compile Include="UserChangePassword.aspx.cs">
+      <DependentUpon>UserChangePassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="userChangePassword.aspx.designer.cs">
-      <DependentUpon>userChangePassword.aspx</DependentUpon>
+    <Compile Include="UserChangePassword.aspx.designer.cs">
+      <DependentUpon>UserChangePassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserManage.Master.cs">
       <DependentUpon>UserManage.Master</DependentUpon>

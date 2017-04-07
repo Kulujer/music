@@ -2,29 +2,27 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div>
-        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-        <asp:Button ID="Button1" runat="server" Text="搜索" />
-    </div>
     <asp:GridView ID="GridView1" runat="server" AllowPaging="True" 
         AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" 
-        GridLines="None" Width="100%">
+        GridLines="None" Width="100%" AllowSorting="True" 
+        onpageindexchanging="GridView1_PageIndexChanging" 
+        onrowcancelingedit="GridView1_RowCancelingEdit" 
+        onrowediting="GridView1_RowEditing" onrowupdating="GridView1_RowUpdating">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:TemplateField HeaderText="序号">
                 <ItemTemplate>
-                    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+                    <asp:Label ID="Label1" runat="server" Text="<%# this.GridView1.PageIndex * this.GridView1.PageSize + this.GridView1.Rows.Count + 1%>"></asp:Label>
                 </ItemTemplate>
                 <ItemStyle Width="50px" />
             </asp:TemplateField>
-            <asp:BoundField HeaderText="歌手名" />
+            <asp:BoundField HeaderText="歌手名" DataField="Name" />
+            <asp:BoundField DataField="Hits" HeaderText="热度" />
             <asp:CommandField HeaderText="编辑" ShowEditButton="True">
             <ControlStyle Width="100px" />
             <ItemStyle HorizontalAlign="Center" Width="110px" />
             </asp:CommandField>
-            <asp:CommandField HeaderText="删除" ShowDeleteButton="True">
-            <ItemStyle HorizontalAlign="Center" Width="72px" />
-            </asp:CommandField>
+            <asp:BoundField DataField="ID" HeaderText="SingerID" Visible="False" />
         </Columns>
         <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
         <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />

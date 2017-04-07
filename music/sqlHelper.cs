@@ -16,7 +16,7 @@ namespace music
             get
             {
                 //获取连接字符串，若无，则从web.config获取
-                string connString = ConfigurationManager.ConnectionStrings["sqlserver"].ToString();
+                string connString = ConfigurationManager.ConnectionStrings["testSql"].ToString();
                 if (connection == null || connection.State == ConnectionState.Closed)
                 {
                     connection = new SqlConnection(connString);

@@ -7,36 +7,23 @@ namespace music
 {
     public class Model_User
     {
-        private static int id;
-        private static string singername;
-        private static int hits;
-        private static DateTime hittime;
-        private static DateTime graptime;
-        public static int ID
+        private int id;
+        private string username;
+        private string password;
+        public int ID
         {
             set { id = value; }
             get { return id; }
         }
-        public static string SingerName
+        public string UserName
         {
-            set { singername = value; }
-            get { return singername; }
+            set { username = value; }
+            get { return username; }
         }
-        public static int Hits
+        public string Password
         {
-            set { hits = value; }
-            get { return hits; }
+            set { password = value; }
+            get { return password; }
         }
-        public static DateTime HitTime
-        {
-            set { hittime = value; }
-            get { return hittime; }
-        }
-        public static DateTime GrapTime
-        {
-            set { graptime = value; }
-            get { return graptime; }
-        }
-
     }
 }
