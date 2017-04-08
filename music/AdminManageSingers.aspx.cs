@@ -47,7 +47,7 @@ namespace music
         protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             //获取值
-            int id = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Value.ToString());
+            Guid id = new Guid(GridView1.DataKeys[e.RowIndex].Value.ToString().Trim());
             string singerName = ((TextBox)(GridView1.Rows[e.RowIndex].Cells[1].Controls[0])).Text.ToString().Trim();
             int Hits = Convert.ToInt32(((TextBox)(GridView1.Rows[e.RowIndex].Cells[2].Controls[0])).Text);
             //封装Model_song
@@ -58,10 +58,11 @@ namespace music
             //调用函数
             BLL_AdminManage AdminMgr = new BLL_AdminManage();
             bool ret = AdminMgr.EditSinger(singer);
-            bind(getData());
+            
             if (ret == true)
             {
-                //成功代码
+                GridView1.EditIndex = -1;
+                bind(getData());
             }
             else
             {

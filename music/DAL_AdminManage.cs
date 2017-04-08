@@ -106,7 +106,7 @@ namespace music
         //获取所有歌曲（前一百）
         public DataTable GetSongs()
         {
-            string sql = "select top 100 [SongName],[SingerName],[ID],[Hits] from [t_music] order by [SongName]";
+            string sql = "select top 100 [SongName],[SingerName],[ID],[TypeName],[Hits] from [t_music] order by [SongName]";
             DataTable dt_temp = sqlHelper.GetDataSet(sql);
 
             return dt_temp;

@@ -39,7 +39,16 @@ namespace music
         {
             if (!IsPostBack)
             {
-                bind(getData());
+                if (Session["userID"] != null)
+                {
+                    bind(getData());
+                    lblStateInfo.Text = Session["userID"] + "欢迎你";
+                }
+                else
+                {
+                    Response.Redirect("loginANDsignup.aspx");
+                }
+                
             }
         }
 

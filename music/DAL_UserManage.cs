@@ -49,7 +49,7 @@ namespace music
             DataTable dt_res = sqlHelper.GetDataSet(sql, parameters);
             if (dt_res.Rows.Count > 0)
             {
-                SessionContorl.SetSession("userID", dt_res.Rows[0][0]);
+                //SessionContorl.SetSession("userID", dt_res.Rows[0][0]);
                 return true;
             }
             else
@@ -76,6 +76,11 @@ namespace music
             return dt_temp;
         }
 
+        /// <summary>
+        /// 删除收藏
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public static bool DeleteCollections(int id)
         {
             string DelString = "delete from [collect] where [collectID]=@collectID";
@@ -92,6 +97,12 @@ namespace music
                 return false;
             }
         }
+
+        /// <summary>
+        /// 修改密码
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         public bool userChangePassword(Model_User user)
         {
             string updateString = "update [dbo].[user] set [password]=@password where [userID]=@userID";
@@ -109,5 +120,15 @@ namespace music
                 return false;
             }
         }
+
+        public DataTable GetMatch(string keyword)
+        {
+            string matchString = "select top 10 [SingerName],[SongName] from [dbo].[t_music] where [SingerName] like '%" + keyword + "%' or [SongName] like '%" + keyword + "%'";
+
+            DataTable dt_temp = sqlHelper.GetDataSet(matchString);
+
+            return dt_temp;
+        }
+
     }
 }
