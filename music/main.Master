@@ -4,11 +4,13 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <link rel="Stylesheet" href="jquery-ui-1.12.1/jquery-ui.css" />
     <link rel="stylesheet" href="css/bootstrap.css"/>
     <link rel="Stylesheet" href="css/bootstrap-theme.css" />
-    <script src="js/jquery-3.1.1.js" type="text/javascript"></script>
-    <script src="js/bootstrap.js" type="text/javascript"></script>
     <link rel="Stylesheet" href="css/Style.css" />
+    <script src="jquery-ui-1.12.1/external/jquery/jquery.js" type="text/javascript"></script>
+    <script src="jquery-ui-1.12.1/jquery-ui.js" type="text/javascript"></script>
+    <script src="js/bootstrap.js" type="text/javascript"></script>
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -29,8 +31,28 @@
                     <asp:HyperLink ID="HyperLink1" CssClass="h4" NavigateUrl="~/UserManageCollections.aspx" runat="server">我的收藏</asp:HyperLink>
                 </span>
                 <div>
-                    <asp:TextBox ID="txtSearch" CssClass="txtSearch" runat="server"></asp:TextBox>
+                    <input id="txtSearch" class="txtSearch" type="text" />
                     <asp:Button ID="btnSearch" CssClass="btnSearch" runat="server" Text="搜索" />
+                    <script type="text/javascript">
+                        $(function () {
+                            $("#txtSearch").keyup(function () {
+                                var availableTags = [];
+                                var key = $("#txtSearch").val();
+                                $.ajax({
+                                    url: 'MatchKeyword.ashx',
+                                    type: 'post',
+                                    data: { "key": key },
+                                    success: function (res) {
+                                        var jsonObj = jQuery.parseJSON(res);
+                                        var availableTags = jsonObj["res"];
+                                        $("#txtSearch").autocomplete({
+                                            source: availableTags
+                                        });
+                                    }
+                                });
+                            });
+                        });
+                    </script>
                 </div>
             </div>
         </div>

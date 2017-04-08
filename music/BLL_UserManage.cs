@@ -35,5 +35,26 @@ namespace music
             DAL_UserManage userMgr = new DAL_UserManage();
             return userMgr.userChangePassword(user);
         }
+
+        public string GetMatches(string keyword)
+        {
+            DAL_UserManage AdminMgr = new DAL_UserManage();
+            DataTable dt_temp = AdminMgr.GetMatch(keyword);
+
+            string JSONString = string.Empty;
+            JSONString += "{\"res\":[";
+            for (int i = 0; i < dt_temp.Rows.Count; i++)
+            {
+                JSONString += "\"";
+                JSONString += dt_temp.Rows[i][0];
+                JSONString += "————";
+                JSONString += dt_temp.Rows[i][1];
+                JSONString += "\",";
+            }
+            JSONString = JSONString.TrimEnd(',');
+            JSONString += "]}";
+
+            return JSONString;
+        }
     }
 }
