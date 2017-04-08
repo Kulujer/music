@@ -77,10 +77,7 @@ body
     }
 
 /*====================SeacherResult====================*/
-.SearchOutcome
-{
-    width:600px;
-    }
+
 .SearchOutcome span
 {
     margin-left:30px;
@@ -91,6 +88,10 @@ body
     float:right;
     }
     
+.checkbox-th
+{
+    width:100px;
+    }
 .songName-th
 {
     width:300px;
@@ -101,8 +102,13 @@ body
     }
 .hits-th
 {
-    width:50px;
+    width:100px;
     }
+.play-th
+{
+    width:100px;
+    }
+
 
 /*====================清除浮动====================*/
 .clear
@@ -127,10 +133,10 @@ body
 }
 
 /*====================AllMusic====================*/
-.music-tb {
-    
-}
-
+.checkbox-th
+{
+    width:100px;
+    }
 .songName-th
 {
     width:300px;
@@ -141,9 +147,10 @@ body
     }
 .hits-th
 {
-    width:50px;
+    width:100px;
+    }
+.play-th
+{
+    width:100px;
     }
 
-.show {
-  display:block;
-}

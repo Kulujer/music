@@ -55,12 +55,12 @@
            <table class="SearchOutcome-tb table table-striped">
                <thead>
                    <tr>
-                       <th></th>
+                       <th class="checkbox-th"></th>
                        <th class="songName-th">歌名</th>
                        <th class="singer-th">歌手</th>
                        <th class="hits-th">热度</th>
-                       <th></th>
-                       <th></th>
+                       <th class="play-th"></th>
+                       <th class="collect-th"></th>
                    </tr>
                </thead>
                <tr id="hidden-tr" style="line-height:0px;"></tr>
