@@ -126,4 +126,24 @@ body
     text-align:right;
 }
 
+/*====================AllMusic====================*/
+.music-tb {
+    
+}
 
+.songName-th
+{
+    width:300px;
+    }
+.singer-th
+{
+    width:100px;
+    }
+.hits-th
+{
+    width:50px;
+    }
+
+.show {
+  display:block;
+}

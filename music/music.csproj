@@ -65,14 +65,16 @@
     <Content Include="css\bootstrap-theme.min.css" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\jquery-ui.css" />
+    <Content Include="css\jquery-ui.theme.css" />
     <Content Include="css\Style.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\jquery-3.1.1.js" />
     <Content Include="js\jquery-3.1.1.min.js" />
+    <Content Include="js\jquery-ui.js" />
     <Content Include="js\npm.js" />
-
     <Content Include="SearchResult.aspx" />
     <Content Include="test.aspx" />
     <Content Include="Top10.aspx" />
@@ -80,12 +82,10 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="userChangePassword.aspx" />
-
     <Content Include="loginANDsignup.aspx" />
     <Content Include="test.aspx" />
     <Content Include="Top10.aspx" />
     <Content Include="UserChangePassword.aspx" />
-
     <Content Include="UserManageCollections.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -145,7 +145,6 @@
     <Compile Include="AllSinger.aspx.designer.cs">
       <DependentUpon>AllSinger.aspx</DependentUpon>
     </Compile>
-
     <Compile Include="BLL_AdminManage.cs" />
     <Compile Include="BLL_UserManage.cs" />
     <Compile Include="DAL_AdminManage.cs" />
@@ -161,7 +160,6 @@
     <Compile Include="Model_Singer.cs" />
     <Compile Include="Model_User.cs" />
     <Compile Include="SessionContorl.cs" />
-
     <Compile Include="sqlHelper.cs" />
     <Compile Include="main.Master.cs">
       <DependentUpon>main.Master</DependentUpon>
@@ -246,7 +244,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>31691</DevelopmentServerPort>
+          <DevelopmentServerPort>46212</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
