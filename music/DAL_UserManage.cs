@@ -49,7 +49,7 @@ namespace music
             DataTable dt_res = sqlHelper.GetDataSet(sql, parameters);
             if (dt_res.Rows.Count > 0)
             {
-                SessionContorl.SetSession("userID", dt_res.Rows[0][0]);
+                //SessionContorl.SetSession("userID", dt_res.Rows[0][0]);
                 return true;
             }
             else

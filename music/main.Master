@@ -27,7 +27,6 @@
                     <asp:LinkButton ID="singer" CssClass="h4" runat="server">歌手</asp:LinkButton>&nbsp;&nbsp;
                     <asp:LinkButton ID="song" CssClass="h4" runat="server">歌曲</asp:LinkButton>&nbsp;&nbsp;
                     <asp:HyperLink ID="HyperLink1" CssClass="h4" NavigateUrl="~/UserManageCollections.aspx" runat="server">我的收藏</asp:HyperLink>
-                    <asp:LinkButton ID="collection" CssClass="h4" runat="server">我的收藏 </asp:LinkButton>
                 </span>
                 <div>
                     <asp:TextBox ID="txtSearch" CssClass="txtSearch" runat="server"></asp:TextBox>
