@@ -16,7 +16,7 @@ namespace music
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-            
+            Session["key"] = txtSearch.Value.ToString();
             Response.Redirect("SearchResult.aspx");
         }
 

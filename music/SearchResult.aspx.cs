@@ -34,7 +34,8 @@ namespace music
             string sql = string.Empty;
             if (key != null && !key.Equals(""))
             {
-                sql = "select SongName,SingerName,WebUrl,Hits from t_music where SongName='" + key + "' or SingerName='" + key + "' ORDER BY Hits"; 
+
+                sql = "select top 100 [SingerName],[SongName] from [dbo].[t_music] where [SingerName] like '%" + key + "%' or [SongName] like '%" + key + "%' ORDER BY Hits"; 
             }
             else
             {

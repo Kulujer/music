@@ -36,8 +36,9 @@
                     <asp:HyperLink ID="HyperLink1" CssClass="h4" NavigateUrl="~/UserManageCollections.aspx" runat="server">我的收藏</asp:HyperLink>
                 </span>
                 <div>
-                    <input id="txtSearch" class="txtSearch" type="text" />
-                    <asp:Button ID="btnSearch" CssClass="btnSearch" runat="server" Text="搜索" />
+                    <input id="txtSearch" class="txtSearch" type="text" runat="server"/>
+                    <asp:Button ID="btnSearch" CssClass="btnSearch" runat="server" Text="搜索" 
+                    OnClick="btnSearch_Click"/>
                     <script type="text/javascript">
                         $(function () {
                             $("#txtSearch").keyup(function () {
