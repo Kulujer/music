@@ -13,6 +13,7 @@
                 for (var i = 0; i < json.length; i++) {
                     $(".SingerTop10-ol").append('<li class="list-group-item SingerTop10-ol-li"><span class="singer-item"><a>' + json[i].Name + '</a></span><span class="hot-item">' + json[i].Hits + '</span></li>');
                 }
+                
             }
         });
     });
