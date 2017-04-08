@@ -15,17 +15,17 @@
             <table style="width: 100%;">
                 <tr>
                     <td>
-                        <asp:HyperLink ID="HyperLink1" runat="server">用户管理</asp:HyperLink>&nbsp;
+                        <asp:HyperLink ID="HyperLink1" NavigateUrl="~/AdminManageUser.aspx" runat="server">用户管理</asp:HyperLink>&nbsp;
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <asp:HyperLink ID="HyperLink2" runat="server">歌曲管理</asp:HyperLink>&nbsp;
+                        <asp:HyperLink ID="HyperLink2" NavigateUrl="~/AdminManageSongs.aspx" runat="server">歌曲管理</asp:HyperLink>&nbsp;
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <asp:HyperLink ID="HyperLink3" runat="server">歌手管理</asp:HyperLink>&nbsp;
+                        <asp:HyperLink ID="HyperLink3" NavigateUrl="~/AdminManageSingers.aspx" runat="server">歌手管理</asp:HyperLink>&nbsp;
                     </td>
                 </tr>
                 <tr>

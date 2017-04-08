@@ -10,7 +10,7 @@ namespace music
     /// </summary>
     public class Model_Song
     {
-        private int id;
+        private Guid id;
         private string songname;
         private string singername;
         private string typename;
@@ -18,7 +18,7 @@ namespace music
         private DateTime grapdatetime;
         private DateTime hittime;
         private int hits;
-        public int ID
+        public Guid ID
         {
             set { id = value; }
             get { return id; }

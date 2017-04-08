@@ -54,19 +54,23 @@ namespace music
         protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             //获取值
-            int id = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Value.ToString());
-            string songName = ((TextBox)(GridView1.Rows[e.RowIndex].Cells[2].Controls[0])).Text.ToString().Trim();
-            string singerName = ((TextBox)(GridView1.Rows[e.RowIndex].Cells[3].Controls[0])).Text.ToString().Trim();
+            Guid id = new Guid(GridView1.DataKeys[e.RowIndex].Value.ToString().Trim());
+            string songName = ((TextBox)(GridView1.Rows[e.RowIndex].Cells[1].Controls[0])).Text.ToString().Trim();
+            string singerName = ((TextBox)(GridView1.Rows[e.RowIndex].Cells[2].Controls[0])).Text.ToString().Trim();
+            string typename = ((TextBox)(GridView1.Rows[e.RowIndex].Cells[3].Controls[0])).Text.ToString().Trim();
             int Hits = Convert.ToInt32(((TextBox)(GridView1.Rows[e.RowIndex].Cells[4].Controls[0])).Text);
             //封装Model_song
             Model_Song song = new Model_Song();
             song.ID = id;
             song.SongName = songName;
             song.SingerName = singerName;
+            song.TypeName = typename;
             song.Hits = Hits;
             //调用函数
             BLL_AdminManage AdminMgr = new BLL_AdminManage();
             bool ret = AdminMgr.EditSong(song);
+
+            GridView1.EditIndex = -1;
             bind(getData());
             if (ret == true)
             {

@@ -19,6 +19,7 @@
             </asp:TemplateField>
             <asp:BoundField HeaderText="歌曲" DataField="SongName" />
             <asp:BoundField HeaderText="歌手" DataField="SingerName" />
+            <asp:BoundField DataField="TypeName" HeaderText="类别" />
             <asp:BoundField DataField="Hits" HeaderText="热度">
             <ItemStyle Width="110px" />
             </asp:BoundField>

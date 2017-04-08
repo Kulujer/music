@@ -7,12 +7,12 @@ namespace music
 {
     public class Model_Singer
     {
-        private int id;
+        private Guid id;
         private string singername;
         private int hits;
         private DateTime hittime;
         private DateTime graptime;
-        public int ID
+        public Guid ID
         {
             set { id = value; }
             get { return id; }
