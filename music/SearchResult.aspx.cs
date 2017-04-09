@@ -50,7 +50,7 @@ namespace music
             }
             else
             {
-                sql = "select top 100 SongName,SingerName,WebUrl,Hits from t_music ORDER BY Hits";
+                sql = "select top 100 [SingerName],[SongName],[Hits],[WebUrl],[ID] from [dbo].[t_music] ORDER BY Hits";
             }
             DataTable table = sqlHelper.GetDataSet(sql);
             //超过一百条记录，则选取其中前一百条
@@ -72,7 +72,7 @@ namespace music
         /// <param name="key"></param>
         /// <returns></returns>
         [WebMethod]
-        protected static int Pagecount()
+        public static int Pagecount()
         {
             int pagecount = 0;
             //整除10
@@ -96,7 +96,7 @@ namespace music
         /// <param name="page"></param>
         /// <returns></returns>
         [WebMethod]
-        protected static string GetOutcome(string page)
+        public static string GetOutcome(string page)
         {
             int Intpage = int.Parse(page);
             //克隆table结构
@@ -132,32 +132,15 @@ namespace music
         /// <summary>
         /// 添加收藏
         /// </summary>
+        /// <param name="SongName"></param>
+        /// <param name="SingerName"></param>
+        /// <param name="WebUri"></param>
+        /// <param name="ID"></param>
         /// <returns></returns>
         [WebMethod]
-        protected static string AddSong(string json)
+        public static void AddCollection(string SongName, string SingerName, string WebUri, int ID)
         {
-            
-            string message = string.Empty;
-            DataTable addTable = table.Clone();
-            Model_Song song = new Model_Song();
-            DataRow row = (DataRow)JsonConvert.DeserializeObject(json);
-            addTable.Rows.Add(row.ItemArray);
-            song.SongName = addTable.Rows[0]["SongName"].ToString();
-            song.SingerName = addTable.Rows[0]["SingerName"].ToString();
-            song.ID =(Guid)(addTable.Rows[0]["ID"]);
-            song.WebUrl= addTable.Rows[0]["WebUrl"].ToString();
-            BLL_UserManage userM = new BLL_UserManage();
-            bool IsAdd = userM.userAddCollection(user, song);
-            if (IsAdd)
-            {
-                message = "添加成功";
-            }
-            else
-            {
-                message = "添加失败"; 
-            }
-            return message;
-        }
 
+        }
     }
 }

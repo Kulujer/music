@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script type="text/javascript">
         $(document).ready(function () {
+            var jsonobj;
             $.ajax({
                 type: "Post",
                 url: "SearchResult.aspx/Pagecount",
@@ -10,11 +11,10 @@
                 dataType: "json",
                 success: function (data) {
                     //添加分页数
-                    var jsonobj = eval(data.d);
+                    var jsonfengye = eval(data.d);
                     $(".fengye-ul").html("");
-                    $(".fengye-ul").append('<li class="previous-li"><a href="javascript:void(0)">&laquo;</a></li><li><a href="javascript:void(0)">&raquo;</a></li>')
-                    for (var i = jsonobj; i > 0; i--) {
-                        $(".previous-li").after('<li id="fengye-li-' + i + '"><a href="javascript:void(0)">' + i + '</a><li>');
+                    for (var i = 1; i <= jsonfengye; i++) {
+                        $(".fengye-ul").append('<li id="fengye-li-' + i + '"><a href="javascript:void(0)">' + i + '</a><li>');
                         $("#fengye-li-" + i).find("a").click(function () {
                             $(this).parent().addClass("active").siblings().removeClass("active");
                             $.ajax({
@@ -24,18 +24,35 @@
                                 contentType: "application/json; charset=utf-8",
                                 dataType: "json",
                                 success: function (data) {
-                                    var jsonobj = eval(data.d);
+                                    jsonobj = eval(data.d);
                                     //移除同级所有元素
                                     $("#hidden-tr").nextAll().remove();
                                     //添加搜索信息
                                     for (var j = 0; j < jsonobj.length; j++) {
-                                        $(".SearchOutcome-tb").append('<tr><td><input type="checkbox"/></td><td>' + jsonobj[j].SongName + '</td> <td>' + jsonobj[j].SingerName + '</td><td>' + jsonobj[j].Hits + '</td><td><a href="' + jsonobj[j].WebUrl + '" target="_blank"><i class="glyphicon glyphicon-play"></i></a></td><td><a><i class="glyphicon glyphicon-heart"></i></a></td></tr>');
+                                        $(".SearchOutcome-tb").append('<tr><td><input type="checkbox"/></td><td>' + jsonobj[j].SongName + '</td> <td>' + jsonobj[j].SingerName + '</td><td>' + jsonobj[j].Hits + '</td><td><a href="' + jsonobj[j].WebUrl + '" target="_blank"><i class="glyphicon glyphicon-play"></i></a></td><td><a class="collection"><i class="glyphicon glyphicon-heart"></i></a></td></tr>');
                                     }
                                 },
                                 error: function () {
                                     alert("加载搜索结果失败");
                                 }
                             });
+//                            $(document).on('click', '.collection', function (e) {
+//                                var td = $(this).parent().siblings();
+//                                var SongName = td.index(1).text();
+//                                $.ajax({
+//                                    type: "Post",
+//                                    url: "SearchResult.aspx/AddCollection",
+//                                    data: "{ 'page': '""' }",
+//                                    contentType: "application/json; charset=utf-8",
+//                                    dataType: "json",
+//                                    success: function (data) {
+//                                        alert("调用成功")
+//                                    },
+//                                    error: function () {
+//                                        alert("调用失败");
+//                                    }
+//                                });
+//                            });
                         });
                     }
 
