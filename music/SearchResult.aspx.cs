@@ -15,19 +15,8 @@ namespace music
     public partial class SearchResult : System.Web.UI.Page
     {
         private static DataTable table = new DataTable();
-        private static bool IsLogin;
-        private static Model_User user = new Model_User();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Session["userID"] == null)
-            {
-                IsLogin = false;
-            }
-            else
-            {
-                user.ID = Convert.ToInt32(Session["userID"]);
-                IsLogin = true;
-            }
             if (table != null || table.Rows.Count != 0)
             {
                 table.Clear();
@@ -46,7 +35,7 @@ namespace music
             if (key != null && !key.Equals(""))
             {
 
-                sql = "select top 100 [SingerName],[SongName],[Hits],[WebUrl],[ID] from [dbo].[t_music] where [SingerName] like '%" + key + "%' or [SongName] like '%" + key + "%' ORDER BY Hits"; 
+                sql = "select top 100 [SingerName],[SongName] from [dbo].[t_music] where [SingerName] like '%" + key + "%' or [SongName] like '%" + key + "%' ORDER BY Hits"; 
             }
             else
             {
@@ -72,7 +61,7 @@ namespace music
         /// <param name="key"></param>
         /// <returns></returns>
         [WebMethod]
-        protected static int Pagecount()
+        public static int Pagecount()
         {
             int pagecount = 0;
             //整除10
@@ -96,7 +85,7 @@ namespace music
         /// <param name="page"></param>
         /// <returns></returns>
         [WebMethod]
-        protected static string GetOutcome(string page)
+        public static string GetOutcome(string page)
         {
             int Intpage = int.Parse(page);
             //克隆table结构
@@ -127,36 +116,6 @@ namespace music
             string JsonString = string.Empty;
             JsonString = JsonConvert.SerializeObject(SelectTable);
             return JsonString;
-        }
-
-        /// <summary>
-        /// 添加收藏
-        /// </summary>
-        /// <returns></returns>
-        [WebMethod]
-        protected static string AddSong(string json)
-        {
-            
-            string message = string.Empty;
-            DataTable addTable = table.Clone();
-            Model_Song song = new Model_Song();
-            DataRow row = (DataRow)JsonConvert.DeserializeObject(json);
-            addTable.Rows.Add(row.ItemArray);
-            song.SongName = addTable.Rows[0]["SongName"].ToString();
-            song.SingerName = addTable.Rows[0]["SingerName"].ToString();
-            song.ID =(Guid)(addTable.Rows[0]["ID"]);
-            song.WebUrl= addTable.Rows[0]["WebUrl"].ToString();
-            BLL_UserManage userM = new BLL_UserManage();
-            bool IsAdd = userM.userAddCollection(user, song);
-            if (IsAdd)
-            {
-                message = "添加成功";
-            }
-            else
-            {
-                message = "添加失败"; 
-            }
-            return message;
         }
 
     }
