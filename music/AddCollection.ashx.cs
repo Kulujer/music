@@ -20,11 +20,12 @@ namespace music
             string SongName = context.Request.Form["SongName"].ToString();
             string WebUrl = context.Request.Form["WebUrl"].ToString();
             Guid ID = new Guid(context.Request.Form["ID"]);
+            int userid = int.Parse(context.Request.Form["user"]);
             song.SongName = SongName;
             song.WebUrl = WebUrl;
             song.ID = ID;
             Model_User user = new Model_User();
-            user.ID = 1111;
+            user.ID = userid;
             bool IsAdd = userManage.userAddCollection(user, song);
             if (IsAdd)
             {

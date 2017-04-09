@@ -45,19 +45,26 @@
             var SongName = $(this).find("span").eq(0).text();
             var WebUrl = $(this).find("span").eq(1).text();
             var ID = $(this).find("span").eq(2).text();
-            $.ajax({
-                type: "Post",
-                url: "AddCollection.ashx",
-                data: { "SongName": SongName, "WebUrl": WebUrl, "ID": ID },
-//                success: function (data) {
-//                    alert("调用成功");
-//                },
-//                error: function (XMLHttpRequest, textStatus, errorThrown) {
-//                    alert(XMLHttpRequest.status);
-//                    alert(XMLHttpRequest.readyState);
-//                    alert(textStatus);
-//                }
-            });
+            var user = '<%=Session["userName"] %>';
+            if (user == "" || user == null) {
+                alert("请先登录");
+            }
+            else {
+                $.ajax({
+                    type: "Post",
+                    url: "AddCollection.ashx",
+                    data: { "SongName": SongName, "WebUrl": WebUrl, "ID": ID, "user": user },
+                    success: function (data) {
+                        alert(data.d);
+                    }
+                    //                                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    //                                        alert(XMLHttpRequest.status);
+                    //                                        alert(XMLHttpRequest.readyState);
+                    //                                        alert(textStatus);
+                    //                                    }
+                });
+            }
+
         });
 
     });
