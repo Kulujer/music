@@ -8,28 +8,29 @@ namespace music
 {
     public class BLL_UserManage
     {
+        //用户登陆
         public bool Login(Model_User user)
         { 
             DAL_UserManage userMgr = new DAL_UserManage();
             return userMgr.login(user);
         }
-
+        //用户注册
         public bool Signup(Model_User user)
         {
             DAL_UserManage userMgr = new DAL_UserManage();
             return userMgr.SignUp(user);
         }
-
+        //用户获取收藏列表
         public DataTable GetCollections(Model_User user)
         { 
             return DAL_UserManage.GetCollections(user);
         }
-
+        //用户删除收藏
         public bool DeleteCollections(int id)
         {
             return DAL_UserManage.DeleteCollections(id);
         }
-
+        //用户修改密码
         public bool userChangePassword(Model_User user)
         {
             DAL_UserManage userMgr = new DAL_UserManage();
@@ -104,14 +105,15 @@ namespace music
             { return false; }
         }
 
-        //用户收藏
+        //用户添加收藏
         public bool userAddCollection(Model_User user, Model_Song song)
         {
             DAL_UserManage UserMgr = new DAL_UserManage();
             return UserMgr.addCollections(user, song);
         }
-
+        
         //歌曲热度添加
+        //添加之前判断是否存在
         public bool addSongHits(Model_Song song)
         {
             string songname = song.SongName;
@@ -125,6 +127,7 @@ namespace music
             { return false; }
         }
         //歌手热度添加
+        //添加之前判断是否存在
         public bool addSingerHits(Model_Singer singer)
         {
             string singername = singer.SingerName;
