@@ -8,7 +8,8 @@
             AllowPaging="True" AllowSorting="True" 
             onpageindexchanging="GridView1_PageIndexChanging" 
             onrowcancelingedit="GridView1_RowCancelingEdit" 
-            onrowediting="GridView1_RowEditing" onrowupdating="GridView1_RowUpdating">
+            onrowediting="GridView1_RowEditing" onrowupdating="GridView1_RowUpdating" 
+            PageSize="20">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:TemplateField HeaderText="序号">

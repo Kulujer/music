@@ -1,29 +1,29 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminManage.Master" AutoEventWireup="true" CodeBehind="AdminManageSingers.aspx.cs" Inherits="music.AdminManageSingers" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminManage.Master" AutoEventWireup="true" CodeBehind="AdminManageGrap.aspx.cs" Inherits="music.GrapManage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" 
-        AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" 
-        GridLines="None" Width="100%" AllowSorting="True" 
-        onpageindexchanging="GridView1_PageIndexChanging" 
-        onrowcancelingedit="GridView1_RowCancelingEdit" 
-        onrowediting="GridView1_RowEditing" onrowupdating="GridView1_RowUpdating" 
-        PageSize="20">
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
+    Width="100%" AllowPaging="True" AllowSorting="True" 
+    onpageindexchanging="GridView1_PageIndexChanging" PageSize="20" 
+        CellPadding="4" ForeColor="#333333" GridLines="None">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:TemplateField HeaderText="序号">
+            <asp:TemplateField>
                 <ItemTemplate>
                     <asp:Label ID="Label1" runat="server" Text="<%# this.GridView1.PageIndex * this.GridView1.PageSize + this.GridView1.Rows.Count + 1%>"></asp:Label>
                 </ItemTemplate>
-                <ItemStyle Width="50px" />
+                <ItemStyle HorizontalAlign="Center" Width="50px" />
             </asp:TemplateField>
-            <asp:BoundField HeaderText="歌手名" DataField="Name" />
-            <asp:BoundField DataField="Hits" HeaderText="热度" />
-            <asp:CommandField HeaderText="编辑" ShowEditButton="True">
-            <ControlStyle Width="100px" />
-            <ItemStyle HorizontalAlign="Center" Width="110px" />
-            </asp:CommandField>
-            <asp:BoundField DataField="ID" HeaderText="SingerID" Visible="False" />
+            <asp:BoundField DataField="RootUrl" HeaderText="根地址" ReadOnly="True" />
+            <asp:BoundField DataField="GrapCount" HeaderText="抓取数量" ReadOnly="True" >
+            <ItemStyle HorizontalAlign="Center" />
+            </asp:BoundField>
+            <asp:BoundField DataField="UrlTitle" HeaderText="UrlTitle" ReadOnly="True" >
+            <ItemStyle HorizontalAlign="Center" />
+            </asp:BoundField>
+            <asp:BoundField DataField="GrapDateTime" HeaderText="抓取时间" ReadOnly="True" >
+            <ItemStyle HorizontalAlign="Center" />
+            </asp:BoundField>
         </Columns>
         <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
         <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />

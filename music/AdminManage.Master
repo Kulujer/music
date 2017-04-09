@@ -30,12 +30,12 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:HyperLink ID="HyperLink4" runat="server">热度管理</asp:HyperLink>&nbsp;
+                        <asp:HyperLink ID="HyperLink4" NavigateUrl="~/AdminManageGrap.aspx" runat="server">爬虫管理</asp:HyperLink>&nbsp;
                     </td>
                 </tr>
             </table>
         </div>
-        <div style="float:left; width:800px;">
+        <div style="float:left; width:1000px;">
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         
         </asp:ContentPlaceHolder>

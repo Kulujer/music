@@ -48,5 +48,11 @@ namespace music
             DAL_AdminManage AdminMgr = new DAL_AdminManage();
             return AdminMgr.editSinger(singer);
         }
+        //爬虫管理
+        public DataTable GetGrap()
+        {
+            DAL_AdminManage AdminMgr = new DAL_AdminManage();
+            return AdminMgr.GetGrap();
+        }
     }
 }
