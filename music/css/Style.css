@@ -155,3 +155,8 @@ body
     }
 
 /*====================AllSinger====================*/
+.AllSinger h3
+{
+    border-bottom:1px solid;
+    border-bottom-color:#000;
+    }

@@ -22,9 +22,9 @@ namespace music
         /// </summary>
         /// <returns></returns>
         [WebMethod]
-        public static string GetSinger()
+        public static string GetSinger(string key)
         {
-            string sql = "select top 10 Name,Hits from t_singer order by Hits";
+            string sql = "select [Name] from [dbo].[t_singer] where [Name] like '%" + key + "%' ORDER BY Hits";
             DataTable table = sqlHelper.GetDataSet(sql);
             string jsonString = string.Empty;
             jsonString = JsonConvert.SerializeObject(table);
