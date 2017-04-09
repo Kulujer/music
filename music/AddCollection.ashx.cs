@@ -18,11 +18,9 @@ namespace music
             BLL_UserManage userManage = new BLL_UserManage();
             Model_Song song = new Model_Song();
             string SongName = context.Request.Form["SongName"].ToString();
-            string SingerName = context.Request.Form["SingerName"].ToString();
             string WebUrl = context.Request.Form["WebUrl"].ToString();
             Guid ID = new Guid(context.Request.Form["ID"]);
             song.SongName = SongName;
-            song.SingerName = SingerName;
             song.WebUrl = WebUrl;
             song.ID = ID;
             Model_User user = new Model_User();

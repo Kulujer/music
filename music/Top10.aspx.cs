@@ -24,7 +24,7 @@ namespace music
         public static string GetMusictop10()
         {
             //获取音乐top10的表格
-            string sql = "select top 10 SongName,SingerName,WebUrl,Hits from t_music ORDER BY Hits;";
+            string sql = "select top 10 SongName,SingerName,WebUrl,Hits,ID from t_music ORDER BY Hits;";
             DataTable table = sqlHelper.GetDataSet(sql);
             string jsonString = string.Empty;
             //json序列化

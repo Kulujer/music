@@ -35,7 +35,7 @@ namespace music
         [WebMethod]
         public static string GetTable(string type)
         {
-            string sql = "select top 20 SongName,SingerName,WebUrl,Hits from t_music where TypeName='" + type + "'";
+            string sql = "select top 20 SongName,SingerName,WebUrl,Hits,ID from t_music where TypeName='" + type + "'";
             DataTable table = sqlHelper.GetDataSet(sql);
             string jsonString = string.Empty;
             jsonString = JsonConvert.SerializeObject(table);

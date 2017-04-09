@@ -49,7 +49,7 @@
                     success: function (data) {
                         var jsonTable = eval(data.d);
                         for (var j = jsonTable.length - 1; j >= 0; j--) {
-                            $("#musictable-" + i).append('<tr><td><input type="checkbox"/></td><td>' + jsonTable[j].SongName + '</td> <td>' + jsonTable[j].SingerName + '</td><td>' + jsonTable[j].Hits + '</td><td><a href="' + jsonTable[j].WebUrl + '" target="_blank"><i class="glyphicon glyphicon-play"></i></a></td><td><a><i class="glyphicon glyphicon-heart"></i></a></td></tr>');
+                            $("#musictable-" + i).append('<tr><td><input type="checkbox"/></td><td>' + jsonTable[j].SongName + '</td> <td>' + jsonTable[j].SingerName + '</td><td>' + jsonTable[j].Hits + '</td><td><a href="' + jsonTable[j].WebUrl + '" target="_blank"><i class="glyphicon glyphicon-play"></i></a></td><td><a class="collection"><i class="glyphicon glyphicon-heart"></i><span>' + jsonTable[j].SongName + '</span><span>' + jsonTable[j].WebUrl + '</span><span>' + jsonTable[j].ID + '</span></a></td></tr>');
                         }
                     },
                     complete: function () {
@@ -59,6 +59,24 @@
                 });
             }
         }
+        $(document).on('click', '.collection', function (e) {
+            var SongName = $(this).find("span").eq(0).text();
+            var WebUrl = $(this).find("span").eq(1).text();
+            var ID = $(this).find("span").eq(2).text();
+            $.ajax({
+                type: "Post",
+                url: "AddCollection.ashx",
+                data: { "SongName": SongName, "WebUrl": WebUrl, "ID": ID },
+//                success: function (data) {
+//                    alert("调用成功");
+//                },
+//                error: function (XMLHttpRequest, textStatus, errorThrown) {
+//                    alert(XMLHttpRequest.status);
+//                    alert(XMLHttpRequest.readyState);
+//                    alert(textStatus);
+//                }
+            });
+        });
     });     
 </script>
 </asp:Content>
