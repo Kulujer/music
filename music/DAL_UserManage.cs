@@ -121,6 +121,11 @@ namespace music
             }
         }
 
+        /// <summary>
+        /// 同时匹配歌手和歌曲
+        /// </summary>
+        /// <param name="keyword"></param>
+        /// <returns></returns>
         public DataTable GetMatch(string keyword)
         {
             string matchString = "select top 10 [SingerName],[SongName] from [dbo].[t_music] where [SingerName] like '%" + keyword + "%' or [SongName] like '%" + keyword + "%'";
@@ -129,6 +134,102 @@ namespace music
 
             return dt_temp;
         }
+        /// <summary>
+        /// 只匹配歌手
+        /// </summary>
+        /// <param name="keyword"></param>
+        /// <returns></returns>
+        public DataTable GetMatchForSingerName(string keyword)
+        {
+            string matchString = "select top 5 [SingerName] from [dbo].[t_music] where [SingerName] like '%" + keyword + "%'";
 
+            DataTable dt_temp = sqlHelper.GetDataSet(matchString);
+
+            return dt_temp;
+        }
+        /// <summary>
+        /// 只匹配歌曲
+        /// </summary>
+        /// <param name="keyword"></param>
+        /// <returns></returns>
+        public DataTable GetMatchForSongName(string keyword)
+        {
+            string matchString = "select top 5 [SongName] from [dbo].[t_music] where [SongName] like '%" + keyword + "%'";
+
+            DataTable dt_temp = sqlHelper.GetDataSet(matchString);
+
+            return dt_temp;
+        }
+        //判断歌曲是否存在
+        public DataTable isSongExist(string keyword)
+        {
+            string query = "select * from [t_music] where [SongName]=@SongName";
+            SqlParameter[] parameters = new SqlParameter[]{
+                new SqlParameter("@SongName",keyword)
+            };
+            DataTable dt_temp = sqlHelper.GetDataSet(query, parameters);
+
+            return dt_temp;
+        }
+        //判断歌手是否存在
+        public DataTable isSingerEExist(string keyword)
+        {
+            string query = "select * from [t_singer] where [Name]=@Name";
+            SqlParameter[] parameters = new SqlParameter[]{
+                new SqlParameter("@Name",keyword)
+            };
+            DataTable dt_temp = sqlHelper.GetDataSet(query, parameters);
+
+            return dt_temp;
+        }
+        //添加收藏
+        public bool addCollections(Model_User user,Model_Song song)
+        {
+            string add="insert into [collect]([songID],[songName],[singerName],[userID],[webUrl])values(@songID,@songName,@singerName,@userID,@webUrl)";
+            SqlParameter[] parameters=new SqlParameter[]{
+                new SqlParameter("@songID",song.ID),
+                new SqlParameter("@songName",song.SongName),
+                new SqlParameter("@singerName",song.SingerName),
+                new SqlParameter("@userID",user.ID),
+                new SqlParameter("@webUrl",song.WebUrl),
+            };
+            int ret = sqlHelper.ExecuteSql(add, parameters);
+            if (ret > 0)
+            {
+                return true;
+            }
+            else { return false; }
+        }
+
+        //歌曲添加热度
+        public bool songAddHits(Model_Song song)
+        {
+            string addHits = "update [t_music] set [Hits]=[Hits]+1,[HitTime]=@HitTime where [ID]=@ID";
+            SqlParameter[] parameters = new SqlParameter[]
+                {
+                    new SqlParameter("@HitTime",song.HitTime),
+                    new SqlParameter("@ID",song.ID),
+                };
+            int ret = sqlHelper.ExecuteSql(addHits, parameters);
+            if (ret > 0)
+            { return true; }
+            else
+            { return false; }
+        }
+        //歌手添加热度
+        public bool singerAddHits(Model_Singer singer)
+        {
+            string addHits = "update [t_singer] set [Hits]=[Hits]+1,[HitTime]=@HitTime where [ID]=@ID";
+            SqlParameter[] parameters = new SqlParameter[]
+                {
+                    new SqlParameter("@HitTime",singer.HitTime),
+                    new SqlParameter("@ID",singer.ID),
+                };
+            int ret = sqlHelper.ExecuteSql(addHits, parameters);
+            if (ret > 0)
+            { return true; }
+            else
+            { return false; }
+        }
     }
 }
