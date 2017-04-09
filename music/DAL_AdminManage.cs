@@ -132,5 +132,12 @@ namespace music
                 return false;
             }
         }
+        //获取爬虫信息
+        public DataTable GetGrap()
+        {
+            string query = "select * from [t_grapUrl]";
+            DataTable dt_temp = sqlHelper.GetDataSet(query);
+            return dt_temp;
+        }
     }
 }

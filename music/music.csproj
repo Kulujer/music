@@ -61,6 +61,7 @@
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\Style.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="AdminManageGrap.aspx" />
     <Content Include="jquery-ui-1.12.1\AUTHORS.txt" />
     <Content Include="jquery-ui-1.12.1\external\jquery\jquery.js" />
     <Content Include="jquery-ui-1.12.1\images\ui-icons_444444_256x240.png" />
@@ -138,6 +139,13 @@
     <Compile Include="BLL_UserManage.cs" />
     <Compile Include="DAL_AdminManage.cs" />
     <Compile Include="DAL_UserManage.cs" />
+    <Compile Include="AdminManageGrap.aspx.cs">
+      <DependentUpon>AdminManageGrap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminManageGrap.aspx.designer.cs">
+      <DependentUpon>AdminManageGrap.aspx</DependentUpon>
+    </Compile>
     <Compile Include="loginANDsignup.aspx.cs">
       <DependentUpon>loginANDsignup.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
