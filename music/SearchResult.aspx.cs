@@ -19,20 +19,21 @@ namespace music
         private static Model_User user = new Model_User();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Session["userID"] == null)
-            {
-                IsLogin = false;
-            }
-            else
-            {
-                user.ID = Convert.ToInt32(Session["userID"]);
-                IsLogin = true;
-            }
+            //if (Session["userID"] == null)
+            //{
+            //    IsLogin = false;
+            //}
+            //else
+            //{
+            //    user.ID = Convert.ToInt32(Session["userID"]);
+            //    IsLogin = true;
+            //}
             if (table != null || table.Rows.Count != 0)
             {
                 table.Clear();
             }
             table = GetTable(Session["key"].ToString());
+            user.ID = 1111;
         }
        
         /// <summary>
@@ -138,9 +139,25 @@ namespace music
         /// <param name="ID"></param>
         /// <returns></returns>
         [WebMethod]
-        public static void AddCollection(string SongName, string SingerName, string WebUri, int ID)
+        public static string AddCollection(string SongName, string SingerName, string WebUri, string strID)
         {
-
+            Guid ID = new Guid(strID);
+            BLL_UserManage userManage = new BLL_UserManage();
+            Model_Song song = new Model_Song();
+            song.SingerName = SingerName;
+            song.SongName = SongName;
+            song.WebUrl = WebUri;
+            song.ID = ID;
+            bool IsAdd = userManage.userAddCollection(user, song);
+            if (IsAdd)
+            {
+                return "添加成功";
+            }
+            else
+            {
+                return "添加失败";
+            }
+           
         }
     }
 }

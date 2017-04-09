@@ -87,7 +87,10 @@ body
 {
     float:right;
     }
-    
+.collection span
+{
+    display:none;
+    }   
 .checkbox-th
 {
     width:100px;

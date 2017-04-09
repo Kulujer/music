@@ -116,6 +116,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddCollection.ashx.cs">
+      <DependentUpon>AddCollection.ashx</DependentUpon>
+    </Compile>
     <Compile Include="AdminManage.Master.cs">
       <DependentUpon>AdminManage.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -258,6 +261,7 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="AdminManage.Master" />
+    <Content Include="AddCollection.ashx" />
     <None Include="css\bootstrap-theme.css.map" />
     <None Include="css\bootstrap.css.map" />
     <None Include="fonts\glyphicons-halflings-regular.eot" />

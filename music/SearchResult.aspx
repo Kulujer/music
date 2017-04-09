@@ -29,30 +29,36 @@
                                     $("#hidden-tr").nextAll().remove();
                                     //添加搜索信息
                                     for (var j = 0; j < jsonobj.length; j++) {
-                                        $(".SearchOutcome-tb").append('<tr><td><input type="checkbox"/></td><td>' + jsonobj[j].SongName + '</td> <td>' + jsonobj[j].SingerName + '</td><td>' + jsonobj[j].Hits + '</td><td><a href="' + jsonobj[j].WebUrl + '" target="_blank"><i class="glyphicon glyphicon-play"></i></a></td><td><a class="collection"><i class="glyphicon glyphicon-heart"></i></a></td></tr>');
+                                        $(".SearchOutcome-tb").append('<tr><td><input type="checkbox"/></td><td>' + jsonobj[j].SongName + '</td> <td>' + jsonobj[j].SingerName + '</td><td>' + jsonobj[j].Hits + '</td><td><a href="' + jsonobj[j].WebUrl + '" target="_blank"><i class="glyphicon glyphicon-play"></i></a></td><td><a class="collection"><i class="glyphicon glyphicon-heart"></i><span>' + jsonobj[j].SongName + '</span><span>' + jsonobj[j].SingerName + '</span><span>' + jsonobj[j].WebUrl + '</span><span>' + jsonobj[j].ID + '</span></a></td></tr>');
                                     }
+
                                 },
                                 error: function () {
                                     alert("加载搜索结果失败");
                                 }
                             });
-//                            $(document).on('click', '.collection', function (e) {
-//                                var td = $(this).parent().siblings();
-//                                var SongName = td.index(1).text();
-//                                $.ajax({
-//                                    type: "Post",
-//                                    url: "SearchResult.aspx/AddCollection",
-//                                    data: "{ 'page': '""' }",
-//                                    contentType: "application/json; charset=utf-8",
-//                                    dataType: "json",
-//                                    success: function (data) {
-//                                        alert("调用成功")
-//                                    },
-//                                    error: function () {
-//                                        alert("调用失败");
-//                                    }
-//                                });
-//                            });
+                            $(document).on('click', '.collection', function (e) {
+                                var SongName = $(this).find("span").eq(0).text();
+                                var SingerName = $(this).find("span").eq(1).text();
+                                var WebUrl = $(this).find("span").eq(2).text();
+                                var ID = $(this).find("span").eq(3).text();
+                                alert(""+SongName+SingerName+WebUrl+ID);
+                                $.ajax({
+                                    type: "Post",
+                                    url: "AddCollection.ashx",
+                                    data: {"SongName":SongName,"SingerName":SingerName,"WebUrl":WebUrl,"strID":ID},
+                                    contentType: "application/json; charset=utf-8",
+                                    dataType: "json",
+                                    success: function (data) {
+                                        alert("调用成功");
+                                    },
+                                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                                        alert(XMLHttpRequest.status);
+                                        alert(XMLHttpRequest.readyState);
+                                        alert(textStatus);
+                                    }
+                                });
+                            });
                         });
                     }
 

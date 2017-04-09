@@ -185,11 +185,10 @@ namespace music
         //添加收藏
         public bool addCollections(Model_User user,Model_Song song)
         {
-            string add="insert into [collect]([songID],[songName],[singerName],[userID],[webUrl])values(@songID,@songName,@singerName,@userID,@webUrl)";
+            string add="insert into [collect]([songID],[songName],[userID],[webUrl])values(@songID,@songName,@userID,@webUrl)";
             SqlParameter[] parameters=new SqlParameter[]{
                 new SqlParameter("@songID",song.ID),
                 new SqlParameter("@songName",song.SongName),
-                new SqlParameter("@singerName",song.SingerName),
                 new SqlParameter("@userID",user.ID),
                 new SqlParameter("@webUrl",song.WebUrl),
             };
