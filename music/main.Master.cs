@@ -18,6 +18,7 @@ namespace music
         {
             Session["key"] = txtSearch.Value.ToString();
             Response.Redirect("SearchResult.aspx");
+            
         }
 
     }

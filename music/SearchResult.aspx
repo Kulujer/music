@@ -29,7 +29,7 @@
                                     $("#hidden-tr").nextAll().remove();
                                     //添加搜索信息
                                     for (var j = 0; j < jsonobj.length; j++) {
-                                        $(".SearchOutcome-tb").append('<tr><td><input type="checkbox"/></td><td>' + jsonobj[j].SongName + '</td> <td>' + jsonobj[j].SingerName + '</td><td>' + jsonobj[j].Hits + '</td><td><a href="' + jsonobj[j].WebUrl + '" target="_blank"><i class="glyphicon glyphicon-play"></i></a></td><td><a class="collection"><i class="glyphicon glyphicon-heart"></i><span>' + jsonobj[j].SongName + '</span><span>' + jsonobj[j].WebUrl + '</span><span>' + jsonobj[j].ID + '</span></a></td></tr>');
+                                        $(".SearchOutcome-tb").append('<tr><td><input type="checkbox"/></td><td>' + jsonobj[j].SongName + '</td> <td>' + jsonobj[j].SingerName + '</td><td>' + jsonobj[j].Hits + '</td><td><a href="' + jsonobj[j].WebUrl + '" target="_blank"><i class="glyphicon glyphicon-play"></i></a></td><td><a href="javascript:void(0)" class="collection"><i class="glyphicon glyphicon-heart"></i><span>' + jsonobj[j].SongName + '</span><span>' + jsonobj[j].WebUrl + '</span><span>' + jsonobj[j].ID + '</span></a></td></tr>');
                                     }
 
                                 },

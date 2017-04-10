@@ -15,19 +15,9 @@ namespace music
     public partial class SearchResult : System.Web.UI.Page
     {
         private static DataTable table = new DataTable();
-        private static bool IsLogin;
         private static Model_User user = new Model_User();
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Session["userID"] == null)
-            //{
-            //    IsLogin = false;
-            //}
-            //else
-            //{
-            //    user.ID = Convert.ToInt32(Session["userID"]);
-            //    IsLogin = true;
-            //}
             if (table != null || table.Rows.Count != 0)
             {
                 table.Clear();

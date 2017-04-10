@@ -13,7 +13,7 @@
                 //获取json数组
                 var jsonobj = eval(data.d);
                 for (var i = jsonobj.length -1; i >=0 ; i--) {
-                    $(".MusicTop10-ol").append(' <li class="list-group-item MusicTop10-ol-li"><span class="song-item">' + jsonobj[i].SongName + '</span><div class="MusicTop10-icon-bar"><span class="play-item"><a href="' + jsonobj[i].WebUrl + '" target="_blank"><i class="glyphicon glyphicon-play"></i></a></span><span class="collect-item"><a class="collection"><i class="glyphicon glyphicon-heart"></i><span>' + jsonobj[i].SongName + '</span><span>' + jsonobj[i].WebUrl + '</span><span>' + jsonobj[i].ID + '</span></a></span></div><span class="hot-item">' + jsonobj[i].Hits + '</span><span class="singer-item">' + jsonobj[i].SingerName + '</span></li>');
+                    $(".MusicTop10-ol").append(' <li class="list-group-item MusicTop10-ol-li"><span class="song-item">' + jsonobj[i].SongName + '</span><div class="MusicTop10-icon-bar"><span class="play-item"><a href="' + jsonobj[i].WebUrl + '" target="_blank"><i class="glyphicon glyphicon-play"></i></a></span><span class="collect-item"><a href="javascript:void(0)" class="collection"><i class="glyphicon glyphicon-heart"></i><span>' + jsonobj[i].SongName + '</span><span>' + jsonobj[i].WebUrl + '</span><span>' + jsonobj[i].ID + '</span></a></span></div><span class="hot-item">' + jsonobj[i].Hits + '</span><span class="singer-item">' + jsonobj[i].SingerName + '</span></li>');
                 }
             },
               complete: function(){

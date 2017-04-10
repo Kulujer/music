@@ -18,7 +18,7 @@ namespace music
         { 
             Model_User user = new Model_User();
             //取用户ID
-            user.ID = Convert.ToInt32(Session["userID"]);
+            user.UserName = Session["userName"].ToString();
 
             BLL_UserManage userMgr = new BLL_UserManage();
             return userMgr.GetCollections(user);

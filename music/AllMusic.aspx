@@ -49,7 +49,7 @@
                     success: function (data) {
                         var jsonTable = eval(data.d);
                         for (var j = jsonTable.length - 1; j >= 0; j--) {
-                            $("#musictable-" + i).append('<tr><td><input type="checkbox"/></td><td>' + jsonTable[j].SongName + '</td> <td>' + jsonTable[j].SingerName + '</td><td>' + jsonTable[j].Hits + '</td><td><a href="' + jsonTable[j].WebUrl + '" target="_blank"><i class="glyphicon glyphicon-play"></i></a></td><td><a class="collection"><i class="glyphicon glyphicon-heart"></i><span>' + jsonTable[j].SongName + '</span><span>' + jsonTable[j].WebUrl + '</span><span>' + jsonTable[j].ID + '</span></a></td></tr>');
+                            $("#musictable-" + i).append('<tr><td><input type="checkbox"/></td><td>' + jsonTable[j].SongName + '</td> <td>' + jsonTable[j].SingerName + '</td><td>' + jsonTable[j].Hits + '</td><td><a href="' + jsonTable[j].WebUrl + '" target="_blank"><i class="glyphicon glyphicon-play"></i></a></td><td><a href="javascript:void(0)" class="collection"><i class="glyphicon glyphicon-heart"></i><span>' + jsonTable[j].SongName + '</span><span>' + jsonTable[j].WebUrl + '</span><span>' + jsonTable[j].ID + '</span></a></td></tr>');
                         }
                     },
                     complete: function () {

@@ -27,7 +27,7 @@ namespace music
             bool ret = userMgr.Login(user);
             if (ret == true)
             {
-                Session["userID"] = Convert.ToInt32(user.UserName);//设置Session为userName
+                Session["userName"] = user.UserName.ToString();//设置Session为userName
                 Response.Redirect("Top10.aspx");
             }
             else
