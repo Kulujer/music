@@ -26,15 +26,26 @@ namespace music
             song.ID = ID;
             Model_User user = new Model_User();
             user.ID = userid;
-            bool IsAdd = userManage.userAddCollection(user, song);
-            if (IsAdd)
+            bool hasAdd = userManage.isSongCollect(song.ID, user.ID);
+            //判断是否已经添加过此歌曲
+            if (hasAdd)
             {
-                context.Response.Write("添加成功");
+                context.Response.Write("已经添加过此歌曲");
             }
             else
             {
-                context.Response.Write("添加失败");
+                //判断是否成功添加此歌曲
+                bool IsAdd = userManage.userAddCollection(user, song);
+                if (IsAdd)
+                {
+                    context.Response.Write("添加成功");
+                }
+                else
+                {
+                    context.Response.Write("添加失败");
+                }
             }
+            
             
         }
 

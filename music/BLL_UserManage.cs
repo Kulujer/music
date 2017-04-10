@@ -105,6 +105,17 @@ namespace music
             { return false; }
         }
 
+        //判断歌曲是否已经收藏
+        public bool isSongCollect(Guid songID ,int userID)
+        {
+            DAL_UserManage UserMgr = new DAL_UserManage();
+            DataTable dt_temp = UserMgr.isSongCollect(songID,userID);
+            if (dt_temp.Rows.Count > 0)
+            { return true; }
+            else
+            { return false; }
+        }
+
         //用户添加收藏
         public bool userAddCollection(Model_User user, Model_Song song)
         {

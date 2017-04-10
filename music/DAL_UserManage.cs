@@ -182,6 +182,19 @@ namespace music
 
             return dt_temp;
         }
+        //判断是否已经收藏
+        public DataTable isSongCollect(Guid songID,int userID)
+        {
+            string query = "select * from [collect] where [songID]=@songID and [userID]=@userID";
+            SqlParameter[] parameters = new SqlParameter[]{
+                new SqlParameter("@songID",songID),
+                new SqlParameter("@usrID",userID)
+            };
+            DataTable dt_temp = sqlHelper.GetDataSet(query, parameters);
+
+            return dt_temp;
+        }
+        
         //添加收藏
         public bool addCollections(Model_User user,Model_Song song)
         {
