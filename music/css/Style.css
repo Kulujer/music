@@ -15,26 +15,33 @@ body
 
 .main-search
 {
-    width:400px;
+    width:900px;
     margin:0 auto;
     padding-bottom:50px;
 }
 
 .txtSearch
 {
-    width:300px;
+    width:500px;
     height:30px;
+    float:left;
 }
 .btnSearch
 {
-    width:50px;
+    width:100px;
     height:30px;
+    float:left
 }
 .footer
 {
     margin-top:50px;
     height:70px;
 }
+
+.Search-box
+{
+    
+    }
 
 /*====================top10====================*/
 .MusicTop10 {
